@@ -21,6 +21,17 @@ def removeB(color, radius):
     return max(color_len-removed, 0)
 
 
+def actual(color, radius):
+    color_len = len(color)
+    st = []
+    for i in range(color_len):
+        if st and color[i] == color[st[-1]] and radius[i] == radius[st[-1]]:
+            st.pop()
+        else:
+            st.append(i)
+    return len(st)
+
+
 dict_1 = {
     "case-1": {
         "color": [2, 3, 5],
